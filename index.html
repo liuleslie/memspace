@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^3.2.x/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+   
+    <script src="https://unpkg.com/aframe-mirror-component/dist/aframe-mirror-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-extras.ocean@3.13.1/dist/aframe-extras.ocean.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.1/dist/aframe-extras.min.js"></script>
+
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+      </a-assets>
+
+<!--nice lighting @ https://aframe.io/a-painter/?url=https://ucarecdn.com/b2de6fa3-2574-4f7f-bca9-ccc3cf89aacc/
+    toggling between different memory spaces: https://ottifox.com/prototype/2017/09/25/interactive-image-grid-in-webvr.html-->
+
+<!-- ripples/waves that are metallic
+portals
+seeing it in inspector view: starting with camera out of space, have other discrete/eet? spaces 
+personalized public memory space
+make the making visible/part of the final thing
+( "vr smells bad" )
+what is a memory space? 
+
+      <a-entity environment="preset: egypt"></a-entity>
+      subtracting 1 from z coordinates 
+      maybe include godrays? -> https://github.com/wizgrav/aframe-effects/blob/master/components/godrays/index.js
+      damaged cyborg/glitch -> https://github.com/wizgrav/aframe-effects/tree/master/components/glitch
+     
+     explore experience more. 
+              what is this?
+            a memory space.
+              what is a memory space?
+            a public space that feels private, a public cave of personal memories, tokens or representations of things that can be 
+            specifically chosen and personalized, a light cloud (or a heavy one on very bright blue sunny days). it's somewhere that's 
+            a second home. 
+              what happens in a memory space?
+            all sorts of things, all sorts of weird things, disjointed dancing and personal grieving. it's quite neutral, maybe with 
+            just a touch of nostalgia. it's a space that moves like the heart: it contracts and expands and follows a certain rhythm, 
+            a certain logic.
+              what are examples of a memory space?
+            dog-eared pages, bookmarks, the web, google earth/satellite, the entire little memory app, a flash drive
+
+            lean into interests.-->
+      
+      <a-entity id="everything" position="0 0 -2.371">
+        <a-entity id="furniture">
+
+          <!-- <a-obj-model id="ramsay" 
+            visible="" n="" 
+            src="models/decor/goblinRamsay.obj" 
+            color="teal" scale="0.0008 0.0008 0.0008" 
+            material="color: #d5b9aa" 
+            obj-model="" 
+            position="0 4.06311 0.20509" 
+            animation__dancearound="property: rotation; to:0 0 360; dir: alternate; loop: true;dur:4500"
+          ></a-obj-model> -->
+          
+          <a-obj-model id="plant"
+            src="models/decor/plant_isolated.obj"
+            mtl="models/decor/plant_isolated.mtl"
+            color="#bbb4a1"
+            scale="0.2 0.2 0.2"
+            position="-1"
+            rotation="90 0 0"
+            visible=""
+          ></a-obj-model>
+
+          <a-obj-model id="tree"
+            src="models/decor/tree.obj"
+            mtl="models/decor/tree.mtl"
+            scale="0.001 0.001.0.001"
+            visible="false"
+          ></a-obj-model>
+
+          <a-obj-model id="teakettle" color="#202020"
+            src="models/decor/teaKettle.obj" 
+            scale="0.0001 0.0001 0.0001" 
+            position="-0.2713 1.186 -1.127" 
+            opacity="0.3"
+            rotation="-66.55477748239642 84.60294802901736 55.850206995967255" 
+            color="white" material="" obj-model=""
+          ></a-obj-model>
+        </a-entity>
+
+        <a-entity id="pod">
+          <a-obj-model id="box"
+            src="omg/box/Model.obj"
+            mtl="omg/box/Model.mtl"
+            position="-2.3 2.152 -1"
+            rotation="0 -11.581 0"
+          ></a-obj-model>
+
+          <a-obj-model id="corner-n-cabinet"
+            src="omg/corner_and_cabinet/Model.obj"
+            mtl="omg/corner_and_cabinet/Model.mtl"
+            position="-1.885 1.41 -0.333"
+            rotation="0 41.060 0"
+          ></a-obj-model>
+
+          <a-obj-model id="main-cabinet"
+            src="omg/main_cabinet/Model.obj"
+            mtl="omg/main_cabinet/Model.mtl"
+            position="-0.139 2.06 -1.526"
+            rotation="-1.006 -25.100 -1.809"
+          ></a-obj-model>
+
+          <a-obj-model id="ceiling"
+            src="omg/ceiling/Model.obj"
+            mtl="omg/ceiling/Model.mtl"
+            position="-1.510 5.225 -0.214"
+            rotation="-29.73 2.341 0.072"
+          ></a-obj-model>
+
+          <a-obj-model id="box-n-cabinet"
+            src="omg/box_and_cabinet/Model.obj"
+            mtl="omg/box_and_cabinet/Model.mtl"
+            position="-1.560 2.136 1.110"
+          ></a-obj-model>
+
+          <a-obj-model id="corner-of-table"
+            src="omg/corner_of_table/Model.obj"
+            mtl="omg/corner_of_table/Model.mtl"
+            position="-1.36 1.348 0.01"
+            rotation="0 60.575 0"
+          ></a-obj-model>
+
+          <a-obj-model id="fire-extinguisher"
+            src="omg/fire_extinguisher/Model.obj"
+            mtl="omg/fire_extinguisher/Model.mtl"
+            position="-2.496 1.143 1.261"
+            rotation="0 50.602 0"
+          ></a-obj-model>
+        </a-entity>
+      </a-entity> <!-- end of everything -->
+
+
+      
+
+
+      <!-- surroundings -->
+
+      <a-entity id="ocean" mirror
+        material="color:#9b8278"
+        position="0 -0.616 -2.163"
+        rotation="-61.29 0.790 20.978"
+        ocean="speed:0.4"
+      ></a-entity>
+
+      <a-light id="lightsource"  
+        color="tomato" 
+        light="type: ambient; color: #ff7558; castShadow: true">
+      </a-light>
+
+      <a-light id="smallerlight" 
+        light="color:#57ff4a;target:#target; angle: -20; decay: 4.4; distance: 0.26; intensity: 0.65" 
+        position="0 0.69 -0.627" 
+        visible="">
+        <a-entity id="target" position="0 -0.45737 -1.90613" scale="0.5 0.5 0.5"
+          animation__move="property:position;to:0 -0.457 -1.906;from:0 -0.457 0;loop:true;dir:alternate;dur:8000"
+        ></a-entity>
+      </a-light>
+
+      <a-plane id="wall-left" 
+        width="10" height="10" 
+        position="-1.885 3.349 -7.116" 
+        rotation="14.731890828403728 24.35357108203564 6.5666692899943655" 
+        color="#edfbe7" 
+        material="" geometry=""
+      ></a-plane>
+
+      <a-grid></a-grid>
+
+      <a-grid id="hoop" 
+        material="color: #c5c5c5; side: double; emissive: #000000" 
+        geometry="primitive: torus" 
+        rotation="-24.60452659630294 37.22621386523984 -1.124143194046675" 
+        scale="3 3 3"
+      ></a-grid>
+
+      <!--rather than have the user wander around, curate your own spaces.-->
+      
+      <a-sky color="white"></a-sky>
+      <a-plane id="ground"
+        rotation="-90 90 0"
+        width="10"
+        height="10"
+        visible="false"
+        color="black"></a-plane>
+
+          <!-- #a4a89d is a real nice color-->
+
+
+
+      <a-icosahedron id="farthest_portal_4" mirror
+        position="0.238 1.261 -2.689"
+        radius="0.2"
+        animation__float="property:position;to:0.238 1.5 -2.689;dir:alternate;loop:true;dur:8000"
+        animation__pulse="property:scale;to:1.2 1.2 1.2;dir:alternate;loop:false"
+
+        event-set__mouseenter="material.color: teal"
+        event-set__mouseleave="material.color: black"
+      ></a-icosahedron>
+
+      <a-octahedron id="portal_underground" mirror
+        position="1.177 -0.603 -2.437"
+        radius="0.2"
+        animation__spin="dur:5000;property:rotation;to:0 360 0;dir:alternate;loop:true"
+      ></a-octahedron>
+
+      <a-icosahedron id="portal_upsidedown_2" mirror
+        position="-0.35 0.36 -0.214"
+        radius="0.2"
+        animation__pulse="property:scale;to:1.2 1.2 1.2;dir:alternate;loop:true;dur:3000">    
+      </a-icosahedron>
+
+      <a-icosahedron id="portal1_intorus_1"
+        position="-1.445 2.151 -0.834"
+        color="teal"
+        scale="0.1 0.1 0.1"
+        opacity="0.5"
+        animation__spin="property:rotation;to:0 360 0;loop:true;dir:alternate;dur:3000"
+        animation__materialize="property:material.opacity;begin:fade;to:1;fill:forwards;startEvents:mouseenter"
+      ></a-icosahedron>
+      <!-- deleted from portal1 code above. also can't get event-set to work within icosahedron,
+        so brute force adding motion
+         event-set__click="_target:#pov;property:position;to:-1.14 -1.08 -3.545"
+          -->
+
+      <a-obj-model id="words" 
+        src="goodlife2.obj"
+        position="1.495 1.947 1.812"
+        rotation=""
+        color=""
+      ></a-obj-model>
+
+      <!-- good color: light pink, ffb99c-->
+
+      <a-text value="
+        When some people talk about money
+        They speak as if it were a mysterious lover
+        Who went out to buy milk and never
+        Came back, and it makes me nostalgic
+        For the years I lived on coffee and bread,
+        Hungry all the time, walking to work on payday
+        Like a woman journeying for water
+        From a village without a well, then living
+        One or two nights like everyone else
+        On roast chicken and red wine."
+        color="#b38976"></a-text>
+
+
+      <!-- <a-entity id="words">
+        <a-text value="When some people talk about money" 
+          position="-2.115 2.340 2.019"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="They speak as if it were a mysterious lover"
+          position="-2.162 2.134 2.083"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="Who went out to buy milk and never"
+          position="-0.125 2.105 0"
+          scale="0.5 0.5 0.5"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="Came back, and it makes me nostalgic"
+          position="0 1.949 0"
+          scale="0.5 0.5 0.5"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="For the years I lived on coffee and bread,"
+          position="-0.689 1.761 0"
+          scale="0.7 0.7 0.7"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="Hungry all the time, walking to work on payday"
+          position="-0.916 1.604 1.347"
+          scale="0.6 0.6 0.6"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="Like a woman journeying for water"
+          position="-1.112 1.409 0"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="From a village without a well, then living"
+          position="-1.332 1.252 0"
+          scale="0.5 0.5 0.5"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="One or two nights like everyone else"
+          position="-1.630 1.044 -0.922"
+          color="#b38976"
+        ></a-text>
+        
+        <a-text value="On roast chicken and red wine."
+          position=""
+          color="#b38976"
+        ></a-text>
+      </a-entity> -->
+
+      <!-- <a-text value="(The Good Life. Tracy K. Smith."
+        position=""></a-text> -->
+
+
+      <!--  <a-text value="Now Interactable" geometry="primitive:plane"></a-text> -->
+
+
+
+
+
+      <!-- in tube > upside down looking up pov > farthest portal (behidn torus) > underground -->
+      <a-camera id="pov"
+        animation__portal1="property:position;to:-2.443 0.469 1.987;dur:5000;delay:10000;easing:easeInQuad;elasticity:450"
+        animation__portal2="property:position;from:-2.443 0.469 1.987;to:-1.14 -1.08 -3.545;dur:5000;delay:20000;easing:easeInQuad;elasticity:600"        
+        animation__portal3="property:position;from:-1.14 -1.08 -3.545;to:0.835 -1.868 -1.544;dur:5000;delay:30000;easing:easeInQuad;elasticity:800"        
+        animation__portal4="property:position;from:0.835 -1.868 -1.544;to:-1.510 5.225 -0.214;dur:5000;delay:40000;easing:easeInQuad;elasticity:600"       
+        animation__back="property:position;from:-1.510 5.225 -0.214;to:0 0 0;dur:5000;delay:50000;easing:easeInQuad;elasticity:450">        
+        
+        <a-cursor></a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
